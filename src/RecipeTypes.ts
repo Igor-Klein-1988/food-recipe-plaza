@@ -36,4 +36,4 @@ export type HealthLabel =
 	| 'tree-nut-free'
 	| 'vegan'
 	| 'vegetarian'
-	| 'wheat-free'
+	| 'wheat-free';

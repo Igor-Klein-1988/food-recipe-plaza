@@ -1,9 +1,9 @@
-import { HealthLabel } from './recipeTypes'
+import { HealthLabel } from './recipeTypes';
 
 export type HealthOptionType = {
-	label: string
-	value: HealthLabel
-}
+	label: string;
+	value: HealthLabel;
+};
 
 export const HealthOptions: HealthOptionType[] = [
 	{ label: 'none', value: '' },
@@ -42,4 +42,4 @@ export const HealthOptions: HealthOptionType[] = [
 	{ label: 'Vegan', value: 'vegan' },
 	{ label: 'Vegetarian', value: 'vegetarian' },
 	{ label: 'Wheat-Free', value: 'wheat-free' },
-]
+];
