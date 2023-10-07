@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import ReactSelect from 'react-select'
-import { HealthOptionType, HealthOptions } from '../../../recipeOptions'
+
 import { HealthLabel } from '../../../recipeTypes'
 
 import style from './HealthSelect.module.css'
+import { HealthOptions, HealthOptionType } from '../../../recipeOptions'
 
 interface HealthSelectProps {
 	onChange: (value: HealthLabel) => void
