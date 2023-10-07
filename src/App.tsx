@@ -1,20 +1,23 @@
 import { FormEvent, useState } from 'react'
-import ReactSelect from 'react-select'
 import axios from 'axios'
 
 import './App.css'
-import { APP_ID, APP_KEY } from './key'
-// import RecipeTitle from "./components/RecipeTitle/RecipeTitle"
-import type { HealthLabel } from './RecipeTypes'
-import { HealthOptionType, HealthOptions } from './RecipeOptions'
+// import { APP_ID, APP_KEY } from './app/service'
+
+import type { HealthLabel } from './recipeTypes'
 import RecipeTitle from './app/components/RecipeTitle/RecipeTitle'
+import HealthSelect from './app/components/HealthSelect/HealthSelect'
 
 function App(): JSX.Element {
+	const API_ID: string = import.meta.env.VITE_EDAMAM_APP_ID
+	const API_KEY: string = import.meta.env.VITE_EDAMAM_APP_KEY
+	console.log({ API_ID, API_KEY })
+
 	const [recipes, setRecipes] = useState<any[]>([])
-	const [query, setQuery] = useState('')
+	const [query, setQuery] = useState<string>('')
 	const [healthLabel, setHealthLabel] = useState<HealthLabel | ''>('')
 
-	const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&health=${healthLabel}`
+	const URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${API_ID}&app_key=${API_KEY}&health=${healthLabel}`
 
 	async function getRecipeInfo(): Promise<void> {
 		const result = await axios.get(URL)
@@ -39,16 +42,7 @@ function App(): JSX.Element {
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
-				<ReactSelect<HealthOptionType>
-					className="app__HealthLabelSelect"
-					value={HealthOptions.find((option) => option.value === healthLabel)}
-					onChange={(option: HealthOptionType | null) => {
-						if (option) {
-							setHealthLabel(option?.value)
-						}
-					}}
-					options={HealthOptions}
-				/>
+				<HealthSelect onChange={setHealthLabel} healthLabel={healthLabel} />
 
 				<input className="app__submit" type="submit" value="Search" />
 			</form>

@@ -1,4 +1,5 @@
 export type HealthLabel =
+	| ''
 	| 'alcohol-cocktail'
 	| 'alcohol-free'
 	| 'celery-free'
