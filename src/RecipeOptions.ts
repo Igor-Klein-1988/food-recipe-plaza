@@ -6,7 +6,6 @@ export type HealthOptionType = {
 };
 
 export const HealthOptions: HealthOptionType[] = [
-	{ label: 'none', value: '' },
 	{ label: 'Alcohol-Cocktail', value: 'alcohol-cocktail' },
 	{ label: 'Alcohol-Free', value: 'alcohol-free' },
 	{ label: 'Celery-Free', value: 'celery-free' },

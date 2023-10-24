@@ -11,10 +11,7 @@ interface HealthSelectProps {
 
 const HealthSelect: FC<HealthSelectProps> = (props: HealthSelectProps): JSX.Element => {
 	const { onChange, healthLabel } = props;
-	console.log({ healthLabel });
-	console.log('1111');
 
-	console.log(HealthOptions.find((option) => option.value === healthLabel));
 	return (
 		<ReactSelect<HealthOptionType>
 			className={style.container}

@@ -1,0 +1,68 @@
+@import '../src/media.scss';
+
+.tabs {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+
+	.tablist {
+		width: 140px;
+		height: 80px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		position: relative;
+		cursor: pointer;
+
+		@include medium {
+			height: 100px;
+		}
+
+		@include default {
+			height: 120px;
+		}
+
+		svg {
+			font-size: 35px;
+			@include medium {
+				font-size: 50px;
+			}
+		}
+
+		span {
+			font-size: 14px;
+			@include medium {
+				font-size: 18px;
+			}
+		}
+
+		&.active {
+			background-color: #6fcb9f;
+
+			svg {
+				color: #fff;
+			}
+			span {
+				color: #fff;
+			}
+
+			&::after {
+				position: absolute;
+				content: '';
+				border-top: 15px solid #6fcb9f;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				bottom: -15px;
+
+				@include medium {
+					border-top: 20px solid #6fcb9f;
+					border-left: 15px solid transparent;
+					border-right: 15px solid transparent;
+					bottom: -20px;
+				}
+			}
+		}
+	}
+}
